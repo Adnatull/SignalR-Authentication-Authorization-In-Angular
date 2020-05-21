@@ -1,0 +1,18 @@
+<div class="container">
+  <form #personalChat="ngForm" (ngSubmit)="sendMessage()">
+    <div class="form-group" >
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username" aria-describedby="username" required [(ngModel)]="model.To" autocomplete="on">
+    </div>
+
+    <ul>
+      <li *ngFor="let message of history"> {{message}}</li>
+    </ul>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea class="form-control" id="message" name="message" rows="3" required [(ngModel)]="model.Message" autocomplete="on"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!personalChat.valid" >Send</button>
+  </form>
+</div>
+
